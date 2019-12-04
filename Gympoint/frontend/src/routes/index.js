@@ -6,7 +6,6 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SingUp';
 
 import Dashboard from '../pages/Dashboard';
-import Profile from '../pages/Profile';
 import Students from '../pages/Students';
 import StudentUpdate from '../pages/Students/updateStudent';
 import StudentAdd from '../pages/Students/addStudent';
@@ -39,7 +38,6 @@ export default function Routes() {
         isPrivate
       />
       <Route path="/help-orders" component={HelpOrders} isPrivate />
-      <Route path="/profile" component={Profile} isPrivate />
       <Route path="/signUp" component={SignIn} />
 
       <Route path="/" component={() => <h1>404</h1>} />
