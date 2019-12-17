@@ -10,7 +10,7 @@ class HelpOrderController {
     const studentQuestions = await HelpOrder.findAll({
       where: { student_id: req.params.id },
       order: ['created_at'],
-      attributes: ['id', 'question', 'created_at'],
+      attributes: ['id', 'question', 'answer', 'created_at'],
       include: [
         {
           model: Student,
@@ -26,9 +26,7 @@ class HelpOrderController {
         .json({ error: `No have checkin for student ${req.params.id}` });
     }
 
-    return res.json({
-      studentQuestions,
-    });
+    return res.json(studentQuestions);
   }
 
   // Create answer

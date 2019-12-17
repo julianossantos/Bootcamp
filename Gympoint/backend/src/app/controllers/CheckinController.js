@@ -9,7 +9,7 @@ class CheckinController {
     // Check if student exists
     const checkinExists = await Checkin.findAll({
       where: { student_id: req.params.id },
-      order: ['created_at'],
+      order: [['created_at', 'DESC']],
       attributes: ['id', 'created_at'],
       include: [
         {
@@ -20,15 +20,13 @@ class CheckinController {
       ],
     });
 
-    if (!checkinExists) {
+    if (checkinExists <= 0) {
       return res
-        .status(400)
+        .status(401)
         .json({ error: `No have checkin for student ${req.params.id}` });
     }
 
-    return res.json({
-      checkinExists,
-    });
+    return res.json(checkinExists);
   }
 
   // Create Checkin
