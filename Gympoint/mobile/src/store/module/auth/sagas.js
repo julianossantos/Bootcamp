@@ -1,5 +1,4 @@
 import { Alert } from 'react-native';
-// takeLatest dica ouvindo as actions para chamar as funções
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 
 import api from '~/services/api';
@@ -12,9 +11,9 @@ export function* signIn({ payload }) {
   try {
     const response = yield call(api.get, `students/${userId}/checkins`);
 
-    const { id, created_at } = response.data;
+    // const { checkinExists.id } = response.data;
 
-    yield put(signInSuccess(id, created_at));
+    yield put(signInSuccess(userId, response.data));
 
     // history.push('/students');
   } catch (err) {

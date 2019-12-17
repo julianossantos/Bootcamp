@@ -7,14 +7,12 @@ import { updateProfileSuccess, updateProfileFailure } from './actions';
 
 export function* updateProfile({ payload }) {
   try {
-    const { name, email, avatar_id, ...rest } = payload.data;
+    const { id, ...rest } = payload.data;
 
     // object assign serve para unir 2 objetos
     const profile = {
-      name,
-      email,
-      avatar_id,
-      ...(rest.oldPassword ? rest : {}),
+      id,
+      ...rest,
     };
 
     // faz a atualização dos dados com o método put da api
