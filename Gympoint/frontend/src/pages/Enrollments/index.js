@@ -157,7 +157,7 @@ export default function Enrollments() {
                     <button
                       type="button"
                       className="delete"
-                      onClick={() => modalDelete(s.id, s.name)}
+                      onClick={() => modalDelete(s.id, s.student.name)}
                     >
                       <MdDelete alt="Deletar" />
                     </button>

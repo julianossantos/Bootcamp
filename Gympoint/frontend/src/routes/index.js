@@ -5,7 +5,6 @@ import Route from './Route';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SingUp';
 
-import Dashboard from '../pages/Dashboard';
 import Students from '../pages/Students';
 import StudentUpdate from '../pages/Students/updateStudent';
 import StudentAdd from '../pages/Students/addStudent';
@@ -23,13 +22,14 @@ export default function Routes() {
       <Route path="/" exact component={SignIn} />
       <Route path="/register" component={SignUp} />
 
-      <Route path="/dashboard" component={Dashboard} isPrivate />
       <Route path="/students" component={Students} isPrivate />
       <Route path="/updateStudent/:name" component={StudentUpdate} isPrivate />
       <Route path="/addStudent" component={StudentAdd} isPrivate />
+
       <Route path="/plans" component={Plans} isPrivate />
       <Route path="/addplan" component={PlanAdd} isPrivate />
       <Route path="/updateplan/:id" component={PlanUpdate} isPrivate />
+
       <Route path="/enrollments" component={Enrollments} isPrivate />
       <Route path="/addEnrollment" component={EnrollmentAdd} isPrivate />
       <Route

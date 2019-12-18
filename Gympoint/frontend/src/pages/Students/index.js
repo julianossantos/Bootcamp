@@ -137,7 +137,7 @@ export default function Student() {
                   <td>{student.age}</td>
                   <td>
                     <Link
-                      to={`/studentManagement/${student.name}`}
+                      to={`/updateStudent/${student.name}`}
                       className="edit"
                     >
                       <MdEdit /> Editar

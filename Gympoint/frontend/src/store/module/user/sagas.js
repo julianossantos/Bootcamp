@@ -9,7 +9,6 @@ export function* updateProfile({ payload }) {
   try {
     const { name, email, avatar_id, ...rest } = payload.data;
 
-    // object assign serve para unir 2 objetos
     const profile = {
       name,
       email,
@@ -17,7 +16,6 @@ export function* updateProfile({ payload }) {
       ...(rest.oldPassword ? rest : {}),
     };
 
-    // faz a atualização dos dados com o método put da api
     const response = yield call(api.put, 'users', profile);
 
     toast.success('Perfil alterado com sucesso');
