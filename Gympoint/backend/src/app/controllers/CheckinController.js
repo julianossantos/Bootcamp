@@ -9,7 +9,7 @@ class CheckinController {
     // Check if student exists
     const checkinExists = await Checkin.findAll({
       where: { student_id: req.params.id },
-      order: [['created_at', 'DESC']],
+      order: [['created_at']],
       attributes: ['id', 'created_at'],
       include: [
         {
@@ -49,7 +49,7 @@ class CheckinController {
           [Op.between]: [subDays(new Date(), 7), today],
         },
       },
-      order: ['created_at'],
+      order: ['created_at', 'DESC'],
       attributes: ['id', 'created_at'],
       include: [
         {

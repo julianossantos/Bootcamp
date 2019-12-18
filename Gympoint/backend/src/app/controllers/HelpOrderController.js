@@ -1,5 +1,4 @@
-import * as Yup from 'yup'; // o YUP segue o schema validation
-import { parseISO } from 'date-fns';
+import * as Yup from 'yup';
 import Student from '../models/Student';
 import HelpOrder from '../models/HelpOrder';
 
@@ -9,7 +8,7 @@ class HelpOrderController {
     // Find student questions
     const studentQuestions = await HelpOrder.findAll({
       where: { student_id: req.params.id },
-      order: ['created_at'],
+      order: [['created_at', 'DESC']],
       attributes: ['id', 'question', 'answer', 'created_at'],
       include: [
         {
@@ -50,7 +49,7 @@ class HelpOrderController {
       return res.status(400).json({ error: 'Student not exists' });
     }
 
-    const createQuestion = await HelpOrder.create({
+    await HelpOrder.create({
       student_id: req.params.id,
       question,
     });
@@ -87,7 +86,7 @@ class HelpOrderController {
       });
     }
 
-    const answered = await HelpOrder.update(
+    await HelpOrder.update(
       {
         answer,
         answer_at: new Date(),

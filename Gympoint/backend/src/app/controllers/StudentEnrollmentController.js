@@ -1,4 +1,4 @@
-import * as Yup from 'yup'; // o YUP segue o schema validation
+import * as Yup from 'yup';
 import {
   startOfHour,
   parseISO,
