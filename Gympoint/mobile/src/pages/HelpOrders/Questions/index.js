@@ -44,20 +44,8 @@ export default function Questions({ navigation }) {
   );
 }
 
-/* Questions.navigationOptions = {
-  tabBarLabel: 'Pedir Ajuda',
-  // eslint-disable-next-line react/prop-types
-  tabBarIcon: ({ tintColor }) => (
-    <Icon name="live-help" size={20} color={tintColor} />
-  ),
-}; */
-
 Questions.navigationOptions = ({ navigation }) => ({
   headerTitle: () => <Header />,
-  headerTitleStyle: {
-    fontWeight: 'bold',
-    backgroundColor: '#f4511e',
-  },
   headerLeft: () => (
     <TouchableOpacity
       onPress={() => {
