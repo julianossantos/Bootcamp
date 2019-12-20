@@ -15,7 +15,7 @@ import StudentEnrollment from '../models/StudentEnrollment';
 import Mail from '../../lib/Mail';
 
 class StudentEnrollmentController {
-  async index(res) {
+  async index(req, res) {
     const enrollments = await StudentEnrollment.findAll({
       order: ['start_date'],
       attributes: ['id', 'start_date', 'end_date', 'price', 'active'],
