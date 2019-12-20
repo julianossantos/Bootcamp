@@ -14,8 +14,8 @@ export default function Checkins() {
   const [checkins, setCheckins] = useState([]);
 
   useEffect(() => {
-    async function loadingCheckins() {
-      const response = await api.get(`students/${id}/checkins`);
+    function loadingCheckins() {
+      const response = api.get(`students/${id}/checkins`);
 
       setCheckins(response.data);
     }

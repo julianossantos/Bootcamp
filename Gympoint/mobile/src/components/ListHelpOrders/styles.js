@@ -15,12 +15,12 @@ export const Container = styled.View`
 export const Left = styled.View`
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
 `;
 
 export const Question = styled.View`
   margin-left: 5px;
+  min-width: 320px;
 `;
 
 export const AwseredIcon = styled.View`
@@ -33,7 +33,7 @@ export const Awsered = styled.Text`
   font-size: 15px;
   font-weight: bold;
   margin-right: 10px;
-  color: ${props => (props.answer ? '#00FF00' : '#aaa')};
+  color: ${props => (props.answer ? '#0ddb55' : '#aaa')};
 `;
 
 export const Checked = styled.Text`
