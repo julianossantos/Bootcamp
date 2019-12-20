@@ -15,7 +15,7 @@ import StudentEnrollment from '../models/StudentEnrollment';
 import Mail from '../../lib/Mail';
 
 class StudentEnrollmentController {
-  async index(req, res) {
+  async index(res) {
     const enrollments = await StudentEnrollment.findAll({
       order: ['start_date'],
       attributes: ['id', 'start_date', 'end_date', 'price', 'active'],
@@ -118,7 +118,6 @@ class StudentEnrollmentController {
         dateEnd: format(dateEndPlan, 'dd/MM/yyy', { locale: pt }),
         price: `R$ ${planValue}`,
       },
-      // text: `Olá ${studentExists.email}! Sua matricula foi confirmada na Gympoint.`,
     });
 
     return res.json({
