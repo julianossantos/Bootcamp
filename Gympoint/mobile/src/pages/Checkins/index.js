@@ -1,6 +1,9 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import { Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import FlashMessage, { showMessage } from 'react-native-flash-message';
+import { withNavigationFocus } from 'react-navigation';
+
 import { useSelector } from 'react-redux';
 import api from '~/services/api';
 
@@ -9,26 +12,38 @@ import ListCheckins from '~/components/ListCheckins';
 
 import { Container, Content, ButtonAddCheckin, List } from './styles';
 
-export default function Checkins() {
+function Checkins({ isFocused }) {
   const id = useSelector(state => state.user.profile);
+  const [refresh, setRefresh] = useState(0);
   const [checkins, setCheckins] = useState([]);
 
+  async function loadingCheckins() {
+    const response = await api.get(`students/${id}/checkins`);
+    setCheckins(response.data);
+  }
+
   useEffect(() => {
-    function loadingCheckins() {
-      const response = api.get(`students/${id}/checkins`);
-
-      setCheckins(response.data);
+    if (isFocused) {
+      loadingCheckins();
     }
-
-    loadingCheckins();
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFocused, refresh]);
 
   async function handleSubmit() {
     try {
       await api.post(`students/${id}/checkins`);
-      Alert.alert('Check-in Realizado', 'Aproveite seu treino');
+      showMessage({
+        message: 'Check-in Realizado',
+        description: 'Aproveite seu treino',
+        type: 'success',
+      });
+      setRefresh();
     } catch (e) {
-      Alert.alert('Erro ao realizar o Check-in', e.response.data.error);
+      showMessage({
+        message: 'Opsss - Não foi possível realizar o check-in',
+        description: e.response.data.error,
+        type: 'danger',
+      });
     }
   }
 
@@ -45,14 +60,16 @@ export default function Checkins() {
           renderItem={({ item }) => <ListCheckins data={item} />}
         />
       </Content>
+      <FlashMessage position="top" />
     </Container>
   );
 }
 
 Checkins.navigationOptions = {
   tabBarLabel: 'Check-ins',
-  // eslint-disable-next-line react/prop-types
   tabBarIcon: ({ tintColor }) => (
     <Icon name="room" size={20} color={tintColor} />
   ),
 };
+
+export default withNavigationFocus(Checkins);

@@ -17,10 +17,12 @@ export default function NewQuestion({ navigation }) {
       await api.post(`students/${id}/help-orders`, {
         question,
       });
+
       Alert.alert(
-        'Pedido de ajuda enviado',
-        'Aguarde o retorno da equipe de atendimento'
+        'Mensagem Enviada',
+        'O seu pedido de ajuda será recebido pela nossa equipe e respondido em breve!'
       );
+
       navigation.navigate('Questions');
     } catch (e) {
       Alert.alert('Erro ao enviar o Pedido de Ajuda', e.response.data.error);
@@ -38,7 +40,6 @@ export default function NewQuestion({ navigation }) {
             value={question}
             onChangeText={setQuestion}
           />
-
           <SubmitButton onPress={handleSubmit}>Enviar Pedido</SubmitButton>
         </Form>
       </Content>
