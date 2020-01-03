@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import routes from './routes';
 
-// náo precisa informar o arquivo index.js porque é default
 import './database';
 
 class App {
