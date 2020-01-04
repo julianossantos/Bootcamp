@@ -1,6 +1,9 @@
+<p align='center'>
+  <img alt="Gympoint" src="/Gympoint/frontend/src/assets/logo.png" width="200px" />
+</p>
+
 # Gympoint
 
-![Gympoint](https://github.com/julianossantos/Bootcamp/blob/master/Gympoint/frontend/src/assets/logo.png)
 Aplicação desenvolvida com a Stack NodeJs, ReactJs e React Native, baseada no aprendizado imersivo do Boot Camp do curso da empresa Rocketseat.
 
 # Descrição
