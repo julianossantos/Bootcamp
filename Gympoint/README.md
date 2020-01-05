@@ -4,7 +4,7 @@
 
 # Gympoint
 
-Aplicação desenvolvida com a Stack NodeJs, ReactJs e React Native, baseada no aprendizado imersivo do Bootcamp Rocketseat. 
+Aplicação desenvolvida com a Stack NodeJs, ReactJs e React Native, baseada no aprendizado imersivo do Bootcamp Gostack da Rocketseat. 
 
 Foram utilizadas diversas bibliotecas para construção da aplicação, dentre elas estão: 
 
@@ -26,14 +26,18 @@ Aplicação para gestão de academia, com a módulos de gerenciamento de matricu
 
 O aluno interage através da aplicação mobile, podendo realizar checkins, bem como pedidos de auxilio sobre treinos, dietas, mensalidades e etc.
 
+Na tela de login, para efeitos didaticos, pasta digitar o id da matricula do aluno, por exemplo: 1.
+
 <p align='center'>
   <img alt="Check-in" src="/Gympoint/assets/Check-in.gif" width="250px"/>&nbsp;&nbsp;
   <img alt="HelpOrders" src="/Gympoint/assets/HelpOrders.gif" width="250px" />
 </p>
 
-## Gestão da Acadêmia
+## Gestão da Acadêmia (Front-end)
 
 Na aplicação Web, os usuários administradores poderão visualizar as matriculas, assim como cadastrar, alterar e excluir os dados dos alunos e suas matriculas, além da gerenciamento dos planos que a acadêmia oferece.
+
+Na tela de login, como somente usuários administradores podem acessar o sistema, utilize o email "admin@gympoint.com.br" e senha "123456" para efeito de teste.
 
 ### 1 - Gerenciamento de Alunos
 
@@ -76,9 +80,9 @@ Para visualizar uma solicitação de auxilio, após clicar no botão de "Respond
 </p>
 
 
-## API (Backend)
+## API (Back-end)
 
-Toda a interação com o aplicação Web quanto com o mobile, é realizada através de API que faz a autenticação com JWT e entrega os dados em formato JSON para rendenrização nas plataformas que a solicitam.
+Toda a interação com o aplicação Web quanto com o mobile, é realizada através de API que faz a autenticação com JWT e entrega os dados em formato JSON para renderização nas plataformas Web e Mobile.
 
 ### 1 - Arquivos para testes
 
