@@ -28,6 +28,8 @@ O aluno interage através da aplicação mobile, podendo realizar checkins, bem 
 
 Na tela de login, para efeitos didaticos, pasta digitar o id da matricula do aluno, por exemplo: 1.
 
+<Strong><u>Observação:</u></strong><i> o app foi desenvolvido na plataforma do IOS e não foi testado no Android.</i>
+
 <p align='center'>
   <img alt="Check-in" src="/Gympoint/assets/Check-in.gif" width="250px"/>&nbsp;&nbsp;
   <img alt="HelpOrders" src="/Gympoint/assets/HelpOrders.gif" width="250px" />
